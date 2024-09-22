@@ -2,7 +2,7 @@ package TddPracticeInJava;
 package TddPracticeInJava;
 
 public class StringCalculator {
-
+   
     public int add(String numbers) {
         // Return 0 for empty input
         if (numbers.isEmpty()) {
