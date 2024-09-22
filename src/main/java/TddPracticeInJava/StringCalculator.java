@@ -1,7 +1,7 @@
 package TddPracticeInJava;
 
-import java.util.Arrays;  // Import Arrays class
-import java.util.List;    // Import List class
+import java.util.Arrays; 
+import java.util.List;  
 
 public class StringCalculator {
 
@@ -30,7 +30,7 @@ public class StringCalculator {
         return input.substring(2, input.indexOf("\n"));
     }
 
-    private String removeDelimiterHeader(String input) {
+   private String removeDelimiterPrefix(String input) {
         return input.substring(input.indexOf("\n") + 1);
     }
 
@@ -46,8 +46,8 @@ public class StringCalculator {
     }
 
     private boolean isIgnoreString(int num) {
-        List<Integer> IGNORE_NUMBERS = Arrays.asList(1001);  // Add more ignore numbers if needed
-        for (int ignoreNum : IGNORE_NUMBERS) {
+        List<Integer> ignoreNumberList = Arrays.asList(1001);  // Add more ignore numbers if needed
+        for (int ignoreNum : ignoreNumberList) {
             if (num >= ignoreNum) {
                 return true;
             }
