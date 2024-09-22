@@ -1,5 +1,8 @@
 package TddPracticeInJava;
 
+import java.util.Arrays;  // Import Arrays class
+import java.util.List;    // Import List class
+
 public class StringCalculator {
 
     public int getSumOfTheNumbers(String input) {
@@ -31,11 +34,6 @@ public class StringCalculator {
         return input.substring(input.indexOf("\n") + 1);
     }
 
-  
-
-
-   
-
     private int findSum(String[] numbers) {
         int sum = 0;
         for (String number : numbers) {
@@ -47,10 +45,8 @@ public class StringCalculator {
         return sum;
     }
 
-   
-private boolean isIgnoreString(int num) {
-
-     List<Integer> IGNORE_NUMBERS = Arrays.asList(1001);  // Add more ignore numbers if needed
+    private boolean isIgnoreString(int num) {
+        List<Integer> IGNORE_NUMBERS = Arrays.asList(1001);  // Add more ignore numbers if needed
         for (int ignoreNum : IGNORE_NUMBERS) {
             if (num >= ignoreNum) {
                 return true;
@@ -58,5 +54,4 @@ private boolean isIgnoreString(int num) {
         }
         return false;
     }
-
 }
