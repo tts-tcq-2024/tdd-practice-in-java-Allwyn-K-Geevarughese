@@ -1,37 +1,45 @@
 package TddPracticeInJava;
-package TddPracticeInJava;
 
 public class StringCalculator {
-   
-    public int add(String numbers) {
-        // Return 0 for empty input
-        if (numbers.isEmpty()) {
+
+    public int add(String input) {
+        if (isEmptyInput(input)) {
             return 0;
         }
 
-        // Handle custom delimiters
-        String delimiter = ",|\n"; // Default delimiters: comma or newline
-        if (numbers.startsWith("//")) {
-            int delimiterIndex = numbers.indexOf("\n");
-            delimiter = numbers.substring(2, delimiterIndex);
-            numbers = numbers.substring(delimiterIndex + 1);
+        String[] numbers = splitInput(input);
+        return calculateSum(numbers);
+    }
+
+    private boolean isEmptyInput(String input) {
+        return input.isEmpty();
+    }
+
+    private String[] splitInput(String input) {
+        String delimiter = ",|\n";
+        if (input.startsWith("//")) {
+            delimiter = extractCustomDelimiter(input);
+            input = removeDelimiterHeader(input);
         }
+        return input.split(delimiter);
+    }
 
-        // Split the numbers by the delimiter
-        String[] tokens = numbers.split(delimiter);
+    private String extractCustomDelimiter(String input) {
+        return input.substring(2, input.indexOf("\n"));
+    }
 
+    private String removeDelimiterHeader(String input) {
+        return input.substring(input.indexOf("\n") + 1);
+    }
+
+    private int calculateSum(String[] numbers) {
         int sum = 0;
-        for (String token : tokens) {
-            if (!token.isEmpty()) {
-                int number = Integer.parseInt(token);
-                if (number <= 1000) { // Ignore numbers greater than 1000
-                    sum += number;
-                }
+        for (String number : numbers) {
+            int num = Integer.parseInt(number.trim());
+            if (num <= 1000) {
+                sum += num;
             }
         }
-
         return sum;
     }
 }
-
-
