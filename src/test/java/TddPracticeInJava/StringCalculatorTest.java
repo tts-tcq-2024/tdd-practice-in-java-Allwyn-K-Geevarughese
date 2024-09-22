@@ -13,7 +13,7 @@ public class StringCalculatorTest {
         int expectedResult = 0;
         String input = "";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.add(input);
+        int result = objUnderTest.getSumOfTheNumbers(input);
 
        assertEquals(expectedResult,result);
     }
@@ -24,7 +24,7 @@ public class StringCalculatorTest {
         int expectedResult = 0;
         String input = "0";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.add(input);
+        int result = objUnderTest.getSumOfTheNumbers(input);
        assertEquals(expectedResult,result);
 
     }
@@ -35,7 +35,7 @@ public class StringCalculatorTest {
         int expectedResult = 3;
         String input = "1,2";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.add(input);
+        int result = objUnderTest.getSumOfTheNumbers(input);
         assertEquals(expectedResult,result);
     }
 
@@ -45,7 +45,7 @@ public class StringCalculatorTest {
         int expectedResult = 6;
         String input = "1\n2,3";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.add(input);
+        int result = objUnderTest.getSumOfTheNumbers(input);
          assertEquals(expectedResult,result);
     }
 
@@ -55,7 +55,7 @@ public class StringCalculatorTest {
         int expectedResult = 1;
         String input = "1,1001";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.add(input);
+        int result = objUnderTest.getSumOfTheNumbers(input);
 
        assertEquals(expectedResult,result);
     }
@@ -65,7 +65,7 @@ public class StringCalculatorTest {
         int expectedResult = 3;
         String input = "//;\n1;2";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.add(input);
+        int result = objUnderTest.getSumOfTheNumbers(input);
 
       assertEquals(expectedResult,result);
     }
