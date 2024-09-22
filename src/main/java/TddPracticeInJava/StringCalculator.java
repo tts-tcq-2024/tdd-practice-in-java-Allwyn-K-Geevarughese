@@ -2,20 +2,19 @@ package TddPracticeInJava;
 
 public class StringCalculator {
 
-    public int add(String input) {
+    public int getSumOfTheNumbers(String input) {
         if (isEmptyInput(input)) {
             return 0;
         }
-
-        String[] numbers = splitInput(input);
-        return calculateSum(numbers);
+        String[] numbers = splitTheInput(input);
+        return findSum(numbers);
     }
 
     private boolean isEmptyInput(String input) {
-        return input.isEmpty();
+        return input.isEmpty() || input == null;
     }
 
-    private String[] splitInput(String input) {
+    private String[] splitTheInput(String input) {
         String delimiter = ",|\n";
         if (input.startsWith("//")) {
             delimiter = extractCustomDelimiter(input);
@@ -32,14 +31,26 @@ public class StringCalculator {
         return input.substring(input.indexOf("\n") + 1);
     }
 
-    private int calculateSum(String[] numbers) {
+  
+
+
+   
+
+    private int findSum(String[] numbers) {
         int sum = 0;
         for (String number : numbers) {
             int num = Integer.parseInt(number.trim());
-            if (num <= 1000) {
+            if (!isIgnoreString(num)) {
                 sum += num;
             }
         }
         return sum;
     }
+
+    private boolean isIgnoreString(int num) {
+          List<Integer> IGNORE_NUMBERS = Arrays.asList(1001);  // Add more ignore numbers if needed
+        return IGNORE_NUMBERS.stream().anyMatch(ignoreNum -> num >= ignoreNum);
+    }
+
+
 }
