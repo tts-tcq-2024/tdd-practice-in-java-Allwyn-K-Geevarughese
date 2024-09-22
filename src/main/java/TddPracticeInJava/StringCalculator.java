@@ -10,7 +10,7 @@ public class StringCalculator {
         return findSum(numbers);
     }
 
-    private boolean isEmptyInput(String input) {
+    private boolean isEmptyInput(String input) { 
         return input.isEmpty() || input == null;
     }
 
@@ -47,10 +47,16 @@ public class StringCalculator {
         return sum;
     }
 
-    private boolean isIgnoreString(int num) {
-          List<Integer> IGNORE_NUMBERS = Arrays.asList(1001);  // Add more ignore numbers if needed
-        return IGNORE_NUMBERS.stream().anyMatch(ignoreNum -> num >= ignoreNum);
-    }
+   
+private boolean isIgnoreString(int num) {
 
+     List<Integer> IGNORE_NUMBERS = Arrays.asList(1001);  // Add more ignore numbers if needed
+        for (int ignoreNum : IGNORE_NUMBERS) {
+            if (num >= ignoreNum) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
